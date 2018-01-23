@@ -22,8 +22,6 @@ namespace WebsiteQuery
     public class WebService1 : System.Web.Services.WebService
     {
         private string websiteURI = "https://www.google.com/";
-        Timer timer;
-        EmailInfo emailInfo;
 
         [WebMethod]
         public void WebsiteQuery(string password)
@@ -34,7 +32,7 @@ namespace WebsiteQuery
             emailInfo.password = password;
             emailInfo.request = request;
 
-            timer = new Timer(QuerySite, emailInfo, 0, 60000);
+            Timer timer = new Timer(QuerySite, emailInfo, 0, 60000);
         }
 
         private void QuerySite(Object emailInfo)
